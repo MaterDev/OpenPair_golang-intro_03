@@ -1,18 +1,46 @@
-# OpenPair: Golang Intro 02
+# OpenPair: Golang Intro 03
 
 ![Cover Image](./cover.png)
 
-Building on my previous introductory exploration on the Go programming language (Golang), this repo delves deeper into some of the core concepts of Go. *This is part of a series to document and share my learning journey and for personal accountability. I hope you find it useful!*
+Welcome to `GoLang Intro 03`! This part of the series dives deeper into GoLang, exploring advanced concepts like interfaces, enhanced error handling, and concurrency, along with a focus on testing these features. Below you'll find an overview of the main code and its corresponding test file.
 
-## Overview
+## Main Code (main.go)
 
-This repo extends the topics covered in the [OpenPair: Golang Intro](https://github.com/MaterDev/OpenPair_golang-intro). Accompanied by a [live stream video](https://www.youtube.com/watch?v=Rc9ZF_3fuA0), it provides an interactive and in-depth exploration of the following concepts:
+The `main.go` file demonstrates several advanced GoLang concepts:
 
-1. **Arrays**: Fixed-size, ordered collections of elements of a single type. The script shows how to declare, initialize, and manipulate arrays, including multi-dimensional arrays.
-2. **Slices**: Dynamic and flexible segments of an array. The script explores slice creation, appending elements, and creating sub-slices, illustrating their dynamic nature compared to arrays.
-3. **Maps**: Key-value pairs that provide a versatile way to store and manage data. The demonstration includes map creation, adding and removing elements, and iterating over maps.
-4. **Structs**: Custom data types that allow the grouping of multiple fields under a single unit. The script illustrates defining structs, creating instances, and modifying their fields.
+- **Structs and Methods**: Introduction to structs with added fields and methods. We use an `Animal` struct as an example.
+- **Interfaces**: Illustration of how interfaces work in GoLang. We define a `Mover` interface and show how `Animal` implements this interface.
+- **Concurrency**: An enhanced concurrency example using goroutines, channels, and the `select` statement.
+- **Error Handling**: Demonstrating Go's approach to error handling with an enhanced divide function that includes error checking.
 
+## Test Code (main_test.go)
+
+The `main_test.go` file contains tests for the `main.go` file:
+
+- **TestSpeak**: Testing the `Speak` method of the `Animal` struct. It checks whether the animals return the correct sounds.
+- **TestMove**: Testing the `Move` method to verify if the `Animal` struct correctly implements the `Mover` interface.
+
+## Running the Code
+
+To run the main program, use:
+
+```bash
+go run main.go
+```
+
+## Running the Tests
+
+To execute the tests, navigate to the directory containing your Go files and run:
+
+```bash
+go test
+```
+
+This command will run all the tests in your package. To run specific tests, use `go test -run TestName`, replacing `TestName` with the name of the test function.
+
+---
+
+This README provides a comprehensive guide to your `GoLang Intro 03` content, making it easier for learners to understand the structure and purpose of your code and its tests.
 ## Useful Resources
 
 In addition to the resources provided in the first tutorial, here are some more to deepen your understanding of Go:

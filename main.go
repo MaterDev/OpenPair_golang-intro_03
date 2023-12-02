@@ -70,8 +70,24 @@ func demonstrateConcurrency() {
 		c <- "message from goroutine"
 	}()
 
+	// * Select is kind of like a switch, except instead of matching a value it will wait for a message to be recieved. The cases act like listeners for channels and then do some behavior once the messge is recieved. The message is stored in a variable.
+	select {
+	case msg := <-c:
+		fmt.Println("Received:", msg)
+	case time := <-time.After(2 * time.Second):
+		// If there is no message recieved after 2 seconds, the time
+		fmt.Println("Timeout: no message recieved", time)
+	}
 }
 
+// Error handling
+func divideNumber(x, y float64) (float64, error) {
+	if y == 0.0 {
+		return 0, fmt.Errorf("divide error: cannot divide by zero")
+	}
+	return x/y, nil
+
+}
 
 func main() {
 	fmt.Println()
@@ -93,6 +109,15 @@ func main() {
 	// Demonstrate Concurrency
 	fmt.Println("\nDemonstating Concurrency with GoRoutines and Channels")
 	demonstrateConcurrency()
+
+	// Demstonstrate Error Handling
+	fmt.Println("\nDemonstrating error handling")
+	result, err := divideNumber(10, 0)
+	// if `err` is not `nil`, there is an error.
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
+	fmt.Println("Result of division:", result)
 
 	fmt.Println()
 }

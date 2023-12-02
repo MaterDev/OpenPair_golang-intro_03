@@ -41,6 +41,7 @@ This command will run all the tests in your package. To run specific tests, use 
 ---
 
 This README provides a comprehensive guide to your `GoLang Intro 03` content, making it easier for learners to understand the structure and purpose of your code and its tests.
+
 ## Useful Resources
 
 In addition to the resources provided in the first tutorial, here are some more to deepen your understanding of Go:
